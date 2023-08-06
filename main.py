@@ -1,11 +1,24 @@
 import telebot
 from openpyxl import load_workbook
 wb = load_workbook("لواء ٣٠٨.xlsx",read_only=True)
-bot = telebot.TeleBot(input("Token : "))
+bot = telebot.TeleBot("5877866725:AAGUQ82KwEaSn_oPWKJHiJvpkl6k3P6Pfqs")
+xx = types.InlineKeyboardButton(text ="‹ شراء ملف البوت ›" , url = "t.me/p9i_u")
+nn = types.InlineKeyboardButton(text ="‹ سورس البوت ›" , url = "t.me/vlod2")
+maac = types.InlineKeyboardMarkup()
+maac.row_width = 2
+maac.add(xx,nn)
 @bot.message_handler(content_types=["text"])
 def start(message):
     if message.text == "/start":
-        bot.reply_to(message, f"• ارسل اسم للبحث عليه داخا بيانات ميليشا سرايا السلام .")
+        id = message.from_user.id
+        a = message.from_user.first_name
+        b = message.from_user.username
+        channel = "vlod2" 
+        x =requests.get(f"https://api.telegram.org/bot{token}/getChatMember?chat_id=@vlod2&user_id={id}").text
+        if x.count("left") or x.count("Bad Request: user not found"):
+        bot.reply_to(message,"عليكم الاشتراك في القناه @vlod2")
+        else:
+          bot.reply_to(message, f"• ارسل اسم للبحث عليه داخا بيانات ميليشا سرايا السلام .", reply_markup=maac)
     msg = message.text
     if "" in msg:
         ws = wb.active
