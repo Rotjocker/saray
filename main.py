@@ -1,4 +1,5 @@
 import telebot
+from telebot import *
 from openpyxl import load_workbook
 wb = load_workbook("لواء ٣٠٨.xlsx",read_only=True)
 bot = telebot.TeleBot("5877866725:AAGUQ82KwEaSn_oPWKJHiJvpkl6k3P6Pfqs")
