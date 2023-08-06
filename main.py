@@ -17,7 +17,7 @@ def start(message):
         channel = "vlod2" 
         x =requests.get(f"https://api.telegram.org/bot{token}/getChatMember?chat_id=@vlod2&user_id={id}").text
         if x.count("left") or x.count("Bad Request: user not found"):
-        bot.reply_to(message,"عليكم الاشتراك في القناه @vlod2")
+          bot.reply_to(message,"عليكم الاشتراك في القناه @vlod2")
         else:
           bot.reply_to(message, f"• ارسل اسم للبحث عليه داخا بيانات ميليشا سرايا السلام .", reply_markup=maac)
     msg = message.text
